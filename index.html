@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Untitled Document</title>
+	<meta name="Author" content=""/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body onload="comprobarNavegador()">
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Ayuda</a>
+      
+    </div>
+</div>
+<!-- HEADER =================================-->
+
+<div class="jumbotron text-center">
+    <div class="container">
+    <div class="row">
+        <div class="col col-lg-12 col-sm-12">
+            <h1>Mastermind</h1>
+            <p>¿Cuál será a combinación?</p>
+        </div>
+    </div>
+    <div class="row" id="Combinacion">
+        <div class="col-lg-3 col-sm-3 fichas">
+            <div class="ficha">
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-3 fichas">
+            <div class="ficha">
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-3 fichas">
+            <div class="ficha">
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-3 fichas"> 
+            <div class="ficha">
+            </div>
+        </div>
+    </div>
+    </div> 
+</div>
+<!-- /header container-->
+
+    <!-- CONTENT
+=================================-->
+<div class="container">
+    <div class="row">
+            <!-- TABLERO =================================-->
+        <div class="col-lg-4 col-sm-4" id="tablero" >
+            
+        </div>
+        
+        <!-- PISTAS =================================-->
+        <div class="col-lg-1 col-sm-1" id="ZonaPistas">
+            
+        </div>
+        <!-- JUGADORES =================================-->
+        <div class="col-lg-6 col-sm-6 PanelJugador">
+            <div class="row">
+                <div class="col-lg-9 col-sm-9" id="InfoJugador">
+                    <div id="Jugador">
+                        <p>Nombre: </p><span id="NombreJugador"></span>
+                    </div>
+                    <div id="Intentos">
+                        <p>Intentos restantes: </p><span id="NumIntentosRestantes"></span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3" id="NuevoJuego">
+                    <input type="button" value="Nuevo Juego" class="btn btn-info" onclick="NuevoJugador()">
+                </div>
+            </div>
+            <div class="row" id="ColoresPosibles">
+                <div class="col-lg-2 col-sm-2 fichas">
+                    <button class="ficha" id="PosibleRojo" onclick="InsertarColores('rojo')"></button>
+                </div>
+                <div class="col-lg-2 col-sm-2 fichas">
+                    <button class="ficha" id="PosibleAzul" onclick="InsertarColores('azul')"></button>
+                </div>
+                <div class="col-lg-2 col-sm-2 fichas">
+                    <button class="ficha" id="PosibleVerde" onclick="InsertarColores('verde')"></button>
+                </div>
+                <div class="col-lg-2 col-sm-2 fichas"> 
+                    <button class="ficha" id="PosibleAmarillo" onclick="InsertarColores('amarillo')"></button>
+                </div>
+                <div class="col-lg-2 col-sm-3 fichas"> 
+                    <button class="ficha" id="PosibleMorado" onclick="InsertarColores('morado')"></button>
+                </div>
+                <div class="col-lg-2 col-sm-3 fichas"> 
+                    <button class="ficha" id="PosibleLila" onclick="InsertarColores('lila')"></button>
+                </div>
+            </div>
+            <div class="row" id="BotonJugar">
+                <div class="col-lg-12 col-sm-12 fichas">
+                    <input type="button" value="Jugar" id="BotonProbarCombi" class="btn btn-info" onclick="JugarIntento()">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+<!-- /CONTENT ============-->
+
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/funciones.js"></script>
+</body>
+</html>
+
+
+
+
+

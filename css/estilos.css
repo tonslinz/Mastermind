@@ -1,0 +1,154 @@
+/***********************************************************************************************
+====================================== TABLERO =================================================
+***********************************************************************************************/
+
+#tablero{
+    min-height: 300px;
+    border: 1px solid #afafaf;
+    border-radius: 5px;
+    padding: 0px 70px;
+}
+.fichas{
+    padding: 0px 5px !important;
+    margin: 0px!important;
+}
+.ficha{
+    height: 50px;
+    background-color: rgba(59, 57, 61, 0.6);
+    margin: 5px 0px;
+    border-radius: 5px;
+    border: medium none;
+    height: 50px;
+    width: 100%;
+}
+#ActivoAzul{
+    background-color: rgba(0, 0, 255, 1);  
+}
+#ActivoRojo{
+    background-color: rgba(255, 0, 0, 1); 
+}
+#ActivoAmarillo{
+    background-color: rgba(255, 255, 0, 1); 
+}
+#ActivoVerde{
+    background-color: rgba(0, 182, 0, 1);
+}
+#ActivoMorado{
+    background-color: rgba(176, 0, 227, 1);
+}
+#ActivoLila{
+    background-color: rgba(215, 168, 227, 1);
+}
+
+/***********************************************************************************************
+======================================= PISTAS =================================================
+***********************************************************************************************/
+
+#ZonaPistas{
+    min-height: 300px;
+    border: 1px solid #afafaf;
+    border-radius: 5px;
+    padding: 0px 15px;
+    margin: 0px 10px 0 30px;
+}
+.pista{
+
+    height: 20px;
+    background-color: rgba(59, 57, 61, 0.6);
+    margin: 5px 0px;
+    border-radius: 5px;
+}
+.pistas{
+    padding: 0px 5px !important;
+    margin: 0px!important;
+}
+#PistaNegra{
+    background-color: #000000;
+}
+#PistaBlanca{
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+#PistaNula{
+    display: none;
+}
+/***********************************************************************************************
+======================================= PANEL JUGADOR ==========================================
+***********************************************************************************************/
+.PanelJugador{
+    min-height: 500px;
+    border:1px solid #afafaf;
+    border-radius: 5px;
+    padding: 10px 15px !important;
+    margin: 0px 10px
+}
+#Jugador{
+    width: 100%;
+    float: left;
+}
+#Jugador p{
+    float: left;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 5px;
+}
+#NombreJugador{
+    float: left;
+    text-align: left;
+}
+#InfoJugador{
+    float: left;
+    min-height: 80px;
+    margin-top: 15px;
+    
+}
+#Intentos{
+    width: 100%;
+    float: left;
+}
+#Intentos p{
+    float: left;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 5px; 
+}
+#NumIntentosRestantes{
+    float: left;
+    text-align: left; 
+}
+#NuevoJuego{
+    padding: 25px 25px
+}
+#NuevoJuego input{
+    height: 50px;
+}
+
+#ColoresPosibles{
+    margin-top: 20px;
+}
+#PosibleRojo{
+    background-color: rgba(255, 0, 0, 1); 
+}
+#PosibleAzul{
+    background-color: rgba(0, 0, 255, 1);  
+}
+#PosibleVerde{
+    background-color: rgba(0, 182, 0, 1);
+}
+#PosibleAmarillo{
+    background-color: rgba(255, 255, 0, 1);
+}
+#PosibleMorado{
+    background-color: rgba( 142, 10, 224, 1 );
+
+}
+#PosibleLila{
+    background-color: rgba( 226, 147, 255, 1 );
+}
+
+#BotonProbarCombi{
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    width: 100%;
+}
