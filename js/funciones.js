@@ -20,18 +20,18 @@ var ObTablero = new ob_tablero(); //Inicializamos el objeto para poder usarlo en
 /************************************************************************
 ======================== Inicio de objetos ==============================
 ************************************************************************/
-function ob_jugador(nombre_in, NumIntentos_in, InteRestantes_in){
+function ob_jugador(nombre_in, NumIntentos_in, InteRestantes_in){ //Este es un objeto generico de jugadores.Se utiliza para crear los jugadores.
     this.nombre = nombre_in;
     this.NumIntentos = NumIntentos_in;
     this.IntenRestantes = InteRestantes_in;
 }
-function ob_combinacion(color1_in, color2_in, color3_in, color4_in){
+function ob_combinacion(color1_in, color2_in, color3_in, color4_in){ //Este es un objeto generico de combinaciones, se usa tanto para la combinacion ganadora como para la combinacion que nosotros elegimos.
     this.color1 = color1_in;
     this.color2 = color2_in;
     this.color3 = color3_in;
     this.color4 = color4_in;
 }
-function FunComprobarCombinaciones(){
+function FunComprobarCombinaciones(){ //Esta funcion comprueba la combinacion elegida por nosotros con la combinacion ganadora para decirnos como estan los colores, es decir para poder generar las pistas
     var bien = 0; //contador para ver cuantos colores estan en su sitio.
     var estan = 0; // contador para ver cuatos colores estan, sin que esten en su sitio.
     //console.log(CombinacionElegida.color1+" "+ this.CombinacionGanadora.color1);
@@ -75,7 +75,7 @@ function FunComprobarCombinaciones(){
     ContadorColoresEstan = estan;
 
 }
-function FunDibujarTablero(intentos){
+function FunDibujarTablero(intentos){ //Esta funcion se encarga de dibujar la matriz del tablero cada vez que jugamos un intento, se llama a trabes del objeto Tablero que hemos creado.
     var MosTablero = "";
     for (var i=0; i<intentos; i++)
     {
@@ -118,7 +118,7 @@ function FunDibujarTablero(intentos){
     document.getElementById("tablero").innerHTML = MosTablero;
 }
 
-function FunDibujarPistas(intentos){
+function FunDibujarPistas(intentos){ //Esta funcion se encarga de dibujar la matriz de pistas cada vez que jugamos un intento, se llama a trabes del objeto Tablero que hemos creado.
     var MosTableroPis = "";
     for (var i=0; i<intentos; i++)
     {
@@ -148,7 +148,7 @@ function FunDibujarPistas(intentos){
     }
     document.getElementById("ZonaPistas").innerHTML = MosTableroPis;
 }
-function FunDibujarComGanadora(){
+function FunDibujarComGanadora(){ //Esta funcion se encarga de dibujar la combinacion ganadora cada vez que terminamos el juego, se llama a traves del objeto Tablero que hemos creado.
 var ComGanadora = "";
     //console.log(this.CombinacionGanadora.color1);
     ComGanadora += "<div class='col-lg-3 col-sm-3 fichas animated fadeInDown'>";
@@ -250,7 +250,7 @@ var ComGanadora = "";
     document.getElementById("Combinacion").innerHTML = ComGanadora;
 }
 
-function ob_tablero(MatTablero_in, MatPistas_in, combinacionGanadora_in){
+function ob_tablero(MatTablero_in, MatPistas_in, combinacionGanadora_in){ //Creamos un objeto llamado tablero.
     this.MatTablero = MatTablero_in;
     this.MatPistas = MatPistas_in;
     this.CombinacionGanadora = combinacionGanadora_in;
@@ -268,7 +268,7 @@ function ob_tablero(MatTablero_in, MatPistas_in, combinacionGanadora_in){
 ==================== Inicio de Arrays y matrices ========================
 ************************************************************************/
 
-function ResetearDibujoCombinacionGanadora(){
+function ResetearDibujoCombinacionGanadora(){ //Esta funcion la usamos para dibujar el trablero donde se muestra la combinacion ganadora cada vez que jugamos un nuevo jugo.
 var ComGanadora = "";
     ComGanadora += "<div class='col-lg-3 col-sm-3 fichas'>";
         ComGanadora += "<div class='ficha'>";
@@ -294,7 +294,7 @@ for (var i = 0; i < Tablero.length; i++){
     Tablero[i]=new Array(4);
 }
 
-function ResetearArray(){
+function ResetearArray(){//Esta trozo de codigo genera una array de Colores(tablero) vacias. Para poder resetearlo cada vez que hacemos un nuevo juego
     for (var i=0; i<Tablero.length; i++)
     {
         for (var e=0; e<Tablero[i].length; e++)
@@ -304,11 +304,11 @@ function ResetearArray(){
     }
 }
 
-var Pistas = new Array(10);
+var Pistas = new Array(10); 
 for (var i = 0; i < Pistas.length; i++){
     Pistas[i]=new Array(4);
 }
-function ResetearPistas(){
+function ResetearPistas(){ //Esta trozo de codigo genera una array de pistas vacias. Para poder resetearlo cada vez que hacemos un nuevo juego
     for (var i=0; i<Pistas.length; i++)
     {
         for (var e=0; e<Pistas[i].length; e++)
@@ -324,7 +324,7 @@ function ResetearPistas(){
 /************************************************************************
 ========================== Inicio de funciones ==========================
 ************************************************************************/
-function DesactivarTodo(){    
+function DesactivarTodo(){ //Esta funcion la usamos para desactivar los botones al cargar la pagina y en algunos navegadores que no funciona
     document.getElementById("BotonProbarCombi").disabled = true;
     document.getElementById("PosibleRojo").disabled = true;
     document.getElementById("PosibleRojo").style.backgroundColor = "rgba(255, 0, 0, 0.5)"; 
@@ -339,12 +339,12 @@ function DesactivarTodo(){
     document.getElementById("PosibleLila").disabled = true;
     document.getElementById("PosibleLila").style.backgroundColor = "rgba( 226, 147, 255, 0.5)";
 }
-function ComprobarSiEsGanador(){
+function ComprobarSiEsGanador(){ //Esta funcion comprueba despues de cada intento si el jugador a acertado la combinacion ganadora mediante la variable global que ya tiene dentro que ya ha comprbado la combinacion introducida y la ganadora, si no ha ganado comprueba si ha agotado los intentos y ha perdido
     console.log("Contador colores" +ContadorColoresBien);
     if (ContadorColoresBien == 4){
         console.log("Es ganador");
         ObTablero.DibujarCombGanadora();
-        window.open("PartidaGanada.html","Juego nuevo","width=400,height=250,top=200,left=475,toolbar=no,location=no,status=no,menubar=no")
+        window.open("PartidaGanada.html","Juego nuevo","width=400,height=100,top=200,left=475,toolbar=no,location=no,status=no,menubar=no")
         DesactivarTodo();
         ObTablero.DibujarCombGanadora();
     }else{
@@ -359,7 +359,7 @@ function ComprobarSiEsGanador(){
         }
     }
 }
-function InsertarLineaTablero(){
+function InsertarLineaTablero(){//Con esta funcion insertamos en el array del objeto tablero la linea correspondiente con el intento que estamos en el array de colores
     var num = contadorIntentos;
     //alert(ObTablero.MatTablero[num].length);
     for (var e=0; e<ObTablero.MatTablero[num].length; e++)
@@ -369,7 +369,7 @@ function InsertarLineaTablero(){
             //console.log("Pintado: "+ObTablero.MatTablero[num][e]);
         }
 }
-function InsertarLineaPistas(){
+function InsertarLineaPistas(){ //Con esta funcion insertamos en el array del objeto tablero la linea correspondiente con el intento que estamos en el array de pistas
     var num = contadorIntentos;
     var coloresBien = ContadorColoresBien;
     var coloresEstan = ContadorColoresEstan;
@@ -407,7 +407,7 @@ function ResetearBotones(){ //usamos esta funcion para devolver los botones de l
                 document.getElementById("PosibleLila").style.backgroundColor = "rgba( 226, 147, 255, 1)"; 
     document.getElementById("BotonProbarCombi").disabled = true;
 }
-function InsertarColores(color){
+function InsertarColores(color){ //Esta funcion se llama cada vez que introducimos un color en la combinacion que elegimos en los intentos, con ella se desactivan los colores que se pulsan y cuando estan los 4 colores se desactivan todos los colores(pulsados o no) y se activa el boton de "Jugar"
     if(contadorAux <= 4 ){
         switch(color){
             case "rojo":
@@ -472,7 +472,7 @@ function InsertarColores(color){
                 //console.log(coloresElegidos);
     }
 }
-function ComprobarRepetidos(num, matriz){
+function ComprobarRepetidos(num, matriz){ //Esta funcion se encarga de comprobar que no ahi numeros repetidos en la combinacion ganadora.
     var aux = true;
     for(var i = 0 ; i < matriz.length; i++){
         if( num == matriz[i]){
@@ -481,11 +481,11 @@ function ComprobarRepetidos(num, matriz){
     }
     return aux;
 }
-function Aleatorio(max, min){
+function Aleatorio(max, min){ //esta funcion genera un numero aleatorio del numero "Max" hasta el numero "Min"
     var num = Math.floor(Math.random() * (max - min));
     return num + min;
 }
-function CambiarNumerosColores(numeros){
+function CambiarNumerosColores(numeros){ //Con esta funcion segun el numero se cambia por un color.
     var colores = numeros;
     for(var i = 0; i<numeros.length; i++){
         switch(numeros[i]){
@@ -510,7 +510,7 @@ function CambiarNumerosColores(numeros){
     }
     return colores;
 }
-function GeneradorCombinacion(){
+function GeneradorCombinacion(){ //En esta funcion se genera una combinacion ganadora comprobando con la llamada de otra funcion que no se repita ningun color, se crean numeros por lo que mediante otra funcion se cambian los numeros por sus correspondientes colores y finalmente se crea el objeto de la combinacion ganadora.
     var colores = new Array(4);
     var i = 0;
     while(i<4){
@@ -523,13 +523,10 @@ function GeneradorCombinacion(){
     colores = CambiarNumerosColores(colores);
     CombinacionGanadora = new ob_combinacion(colores[0], colores[1], colores[2],colores[3])
 }
-function MostrarAyuda(){
-    alert("-Si la pista es negra: significa que ahí uno de los cuatro colores en la combinación secreta y esta en su sitio.\n-Si la pista es blanca significa que uno de los colores esta en la combinación secreta, pero no esta en su sitio. \n-Si falta alguna de las 4 pistas, significa que uno de los colores no esta en la combinación.");
-}
 function NuevoJugador(){ //funcion para abrir la ventana de nuevo jugador
-    window.open("nuevoJugador.html","Juego nuevo","width=400,height=250,top=200,left=475,toolbar=no,location=no,status=no,menubar=no");
+    window.open("nuevoJugador.html","Juego nuevo","width=400,height=275,top=200,left=475,toolbar=no,location=no,status=no,menubar=no");
 }
-function IniciarJuego(){ //Desde aqui reseteamos todos los tableros y generamos una nueva combinacion ganadora.
+function IniciarJuego(){ //Desde aqui reseteamos todos los tableros y generamos una nueva combinacion ganadora. Es decir, se resetea el juego entero tras crear el nuevo jugador
     ResetearArray();
     ResetearPistas();
     ResetearBotones();
@@ -540,7 +537,7 @@ function IniciarJuego(){ //Desde aqui reseteamos todos los tableros y generamos 
     ObTablero.DibujarTablero(Jugador.NumIntentos);
     ObTablero.DibujarPistas(Jugador.NumIntentos);
 }
-function JugarIntento(){
+function JugarIntento(){ //Esta funcion se ejecuta cada vez que se juega un intento, al pulsar el boton "Jugar"
         ObTablero.Comprobador();
         InsertarLineaTablero();
         InsertarLineaPistas()
@@ -552,7 +549,7 @@ function JugarIntento(){
         document.getElementById("NumIntentosRestantes").innerHTML = Jugador.IntenRestantes;
         ComprobarSiEsGanador();
 }
-function EmpiezaJuego(){ //Con esta funcion se empezaria el juego de cero, es decir es el inicio de un nuevo juego
+function EmpiezaJuego(){ //Con esta funcion se ejecuta en la ventana generada para introducir el nuevo jugador y la dificultad, en esta funcion se recogen esos datos y crea el ojeto jugador.
     var nombre = document.getElementById("nombrejugadorform").value;
     var numInten = numIntentosform.options[numIntentosform.selectedIndex].value;
     window.opener.Jugador = new ob_jugador(nombre, numInten, numInten);
@@ -561,14 +558,18 @@ function EmpiezaJuego(){ //Con esta funcion se empezaria el juego de cero, es de
     window.opener.IniciarJuego();
     window.close();
 }
-function MostrarComoJugar(){
+
+function MostrarAyuda(){ //Funcion que muestra un alert con la ayuda al pulsar "Ayuda"
+    alert("-Si la pista es negra: significa que ahí uno de los cuatro colores en la combinación secreta y esta en su sitio.\n-Si la pista es blanca significa que uno de los colores esta en la combinación secreta, pero no esta en su sitio. \n-Si falta alguna de las 4 pistas, significa que uno de los colores no esta en la combinación.");
+}
+function MostrarComoJugar(){ //Funcion que muestra el alert a la hora de pulsar "¿Como jugar?
     var ComoJugar = "";
-    ComoJugar += "-Debes jugar en una pantalla como mínimo de resolución de 1280 x 720.\n "
-    ComoJugar += "-Tu pantalla es de:" + window.screen.height + " x " + window.screen.width + " Pixeles.\n ";
+    ComoJugar += "- Debes jugar en una pantalla como mínimo de resolución de 1280 x 720.\n "
+    ComoJugar += "- Tu pantalla es de: " + window.screen.height + " x " + window.screen.width + " Pixeles.\n ";
     ComoJugar += "- Para Comenzar el Juego pulsa sobre Nuevo Juego.\n";
-    ComoJugar += "-Despues Introduce tu nombre y La dificultad\n";
-    ComoJugar += "-Pulsa sobre los colores para crear tu combinación y adivinar la combinación secreta, recuerda pulsarlos en el orden que tu quieres que estén\n";
-    ComoJugar += "-Una vez elegida la combinación, pulsa sobre jugar\n ";
+    ComoJugar += "- Despues Introduce tu nombre y La dificultad\n";
+    ComoJugar += "- Pulsa sobre los colores para crear tu combinación y adivinar la combinación secreta, recuerda pulsarlos en el orden que tu quieres que estén\n";
+    ComoJugar += "- Una vez elegida la combinación, pulsa sobre jugar\n ";
     ComoJugar += "Gracias por jugarlo.";
     alert(ComoJugar);
 }
@@ -580,6 +581,8 @@ function MostrarComoJugar(){
 /************************************************************************
 ========================== Inicio codio extra ===========================
 ************************************************************************/
+
+//Con este siguiente codigo lo usamos para crear el reloj y mostrarlo.
 var myVar = setInterval(function(){myTimer()}, 1000);
 
 function myTimer() {
