@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
-<body onload="comprobarNavegador()">
+<body onload="DesactivarTodo()">
 <div class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,7 +16,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Ayuda</a>
+      <a class="navbar-brand" href="#" onclick="MostrarAyuda()">Ayuda</a>
+      <a class="navbar-brand" href="#" onclick="MostrarComoJugar()">¿Como jugar?</a>
       
     </div>
 </div>
@@ -77,7 +78,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-3" id="NuevoJuego">
-                    <input type="button" value="Nuevo Juego" class="btn btn-info" onclick="NuevoJugador()">
+                    <button type="button" value="Nuevo Juego" class="btn btn-info" id="NuevoJugoBtn" onclick="NuevoJugador()">Nuevo Juego</button>
                 </div>
             </div>
             <div class="row" id="ColoresPosibles">
@@ -111,7 +112,22 @@
     
 </div>
 <!-- /CONTENT ============-->
-
+<div class="pie_de_pagina" id="fin">
+    <div class="container">
+        <div class="row" id="PieExtra">
+            <div class="col-xs-12 col-sm-4 col-md-4" id="columnaIzquierda">
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4" id="columnaCentralFin">
+                <h1>Información</h1>
+                <p>Proyecto creado para trabajo final del primer trimestre de Desarrollo web en entorno cliente.</p>
+                <p>Creado Por Alberto Garcia de 2ºDAW</p>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4" id="columnaDerecha">
+                
+            </div>
+        </div>
+    </div>
+</div>
     
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>

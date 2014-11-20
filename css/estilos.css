@@ -1,3 +1,7 @@
+body{
+    background-image: url(/Img/geometry2.png);
+}
+
 /***********************************************************************************************
 ====================================== TABLERO =================================================
 ***********************************************************************************************/
@@ -7,6 +11,7 @@
     border: 1px solid #afafaf;
     border-radius: 5px;
     padding: 0px 70px;
+    background-color: #FFFFFF;
 }
 .fichas{
     padding: 0px 5px !important;
@@ -50,6 +55,7 @@
     border-radius: 5px;
     padding: 0px 15px;
     margin: 0px 10px 0 30px;
+    background-color: #FFFFFF;
 }
 .pista{
 
@@ -80,7 +86,8 @@
     border:1px solid #afafaf;
     border-radius: 5px;
     padding: 10px 15px !important;
-    margin: 0px 10px
+    margin: 0px 10px;
+    background-color: #FFFFFF;
 }
 #Jugador{
     width: 100%;
@@ -122,6 +129,10 @@
 #NuevoJuego input{
     height: 50px;
 }
+#NuevoJugoBtn{
+    height: 50px;
+    width: 110px;
+}
 
 #ColoresPosibles{
     margin-top: 20px;
@@ -151,4 +162,54 @@
     margin: auto;
     padding: auto;
     width: 100%;
+}
+
+
+/***********************************************************************************************
+====================================== PiePagina ===============================================
+***********************************************************************************************/
+
+#fin{
+    background-color: rgba(86, 87, 88, 0.5);
+    height: 100%;
+    width: 100%;
+    text-align:center;
+    border-top: 1px solid #2F4F4F;
+    margin-top: 20px;
+}
+#fin div{
+  padding: 10px;
+}
+#columnaCentralFin{
+    border-left: 1px solid rgba(40, 40, 40, 1);
+    padding: 0px;
+}
+#columnaCentralFin h1{
+    margin-top: -10px;
+    color: white;
+    font-size: 25px;
+    text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+}
+#columnaCentralFin p{
+    font-size: 12px;
+    margin: 0px
+}
+#columnaIzquierda span{
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px;
+    text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+    color: white;
+}
+#columnaDerecha{
+    border-left: 1px solid rgba(40, 40, 40, 1);
+    padding-left: 50px;
+    font-family: Rockwell, Georgia, "Times New Roman", Times, serif;
+    font-size: 50px;
+    color: #FFFFFF;
+    text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+}
+#columnaDerecha img{ 
+    margin-right: 10px;
+    margin-bottom: 10px;
 }

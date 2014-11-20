@@ -324,7 +324,7 @@ function ResetearPistas(){
 /************************************************************************
 ========================== Inicio de funciones ==========================
 ************************************************************************/
-function DesactivarTodo(){
+function DesactivarTodo(){    
     document.getElementById("BotonProbarCombi").disabled = true;
     document.getElementById("PosibleRojo").disabled = true;
     document.getElementById("PosibleRojo").style.backgroundColor = "rgba(255, 0, 0, 0.5)"; 
@@ -523,6 +523,9 @@ function GeneradorCombinacion(){
     colores = CambiarNumerosColores(colores);
     CombinacionGanadora = new ob_combinacion(colores[0], colores[1], colores[2],colores[3])
 }
+function MostrarAyuda(){
+    alert("-Si la pista es negra: significa que ahí uno de los cuatro colores en la combinación secreta y esta en su sitio.\n-Si la pista es blanca significa que uno de los colores esta en la combinación secreta, pero no esta en su sitio. \n-Si falta alguna de las 4 pistas, significa que uno de los colores no esta en la combinación.");
+}
 function NuevoJugador(){ //funcion para abrir la ventana de nuevo jugador
     window.open("nuevoJugador.html","Juego nuevo","width=400,height=250,top=200,left=475,toolbar=no,location=no,status=no,menubar=no");
 }
@@ -558,3 +561,57 @@ function EmpiezaJuego(){ //Con esta funcion se empezaria el juego de cero, es de
     window.opener.IniciarJuego();
     window.close();
 }
+function MostrarComoJugar(){
+    var ComoJugar = "";
+    ComoJugar += "-Debes jugar en una pantalla como mínimo de resolución de 1280 x 720.\n "
+    ComoJugar += "-Tu pantalla es de:" + window.screen.height + " x " + window.screen.width + " Pixeles.\n ";
+    ComoJugar += "- Para Comenzar el Juego pulsa sobre Nuevo Juego.\n";
+    ComoJugar += "-Despues Introduce tu nombre y La dificultad\n";
+    ComoJugar += "-Pulsa sobre los colores para crear tu combinación y adivinar la combinación secreta, recuerda pulsarlos en el orden que tu quieres que estén\n";
+    ComoJugar += "-Una vez elegida la combinación, pulsa sobre jugar\n ";
+    ComoJugar += "Gracias por jugarlo.";
+    alert(ComoJugar);
+}
+/************************************************************************
+========================== final de funciones ===========================
+************************************************************************/
+
+
+/************************************************************************
+========================== Inicio codio extra ===========================
+************************************************************************/
+var myVar = setInterval(function(){myTimer()}, 1000);
+
+function myTimer() {
+    var d = new Date();
+    var t = d.toLocaleTimeString();
+    document.getElementById("columnaDerecha").innerHTML = "<img src='Img/reloj.png' alt='reloj'/>"+t;
+}
+
+//Creamos el siguiente codigo para sacar el navegador web que estamos utilizando.
+var informacionNav = "";
+
+informacionNav += "<span>Estas usando el navegador:</span>";
+if (navigator.userAgent.indexOf('NET') !=-1) {
+    informacionNav += "<img src='Img/internetExplorer.png' alt='internetExplorer'/>";
+    alert("Este juego no funciona en Internet Explorer, Utilice Mozilla Firefox por favor");
+    DesactivarTodo();
+    document.getElementById("NuevoJugoBtn").disabled = true;
+} else if (navigator.userAgent.indexOf('Firefox') !=-1) {
+    informacionNav += "<img src='Img/firefox.png' alt='firefox'/>";
+} else if (navigator.userAgent.indexOf('Chrome') !=-1) {
+    informacionNav += "<img src='Img/chrome.png' alt='chrome'/>"
+    alert("Este juego no funciona en Chrome, Utilice Mozilla Firefox por favor");
+    DesactivarTodo();
+    document.getElementById("NuevoJugoBtn").disabled = true;
+} else {
+ informacionNav +='está usando un navegador no identificado ...';
+}
+
+//informacionNav += navigator.userAgent ;
+
+document.getElementById("columnaIzquierda").innerHTML = informacionNav;
+
+/************************************************************************
+=========================== final codio extra ===========================
+************************************************************************/
